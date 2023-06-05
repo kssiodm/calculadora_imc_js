@@ -1,20 +1,10 @@
-$(document).ready(function(){
-    $('header button').click(function(e){
-        $('#form').slideDown();
-    })
-
-    $('#botao_cancelar').click(function(){
-        $('#form').slideUp();
-    })
-});
-
 function calcularIMC() {
     var peso = parseFloat(document.getElementById('peso').value);
     var altura = parseFloat(document.getElementById('altura').value);
 
     if (isNaN(peso) || isNaN(altura)) {
-    document.getElementById('resultado').innerHTML = "Por favor, insira valores numéricos válidos.";
-    return;
+        document.getElementById('resultado-imc').innerHTML = "Por favor, insira valores numéricos válidos.";
+        return;
     }
 
     var imc = peso / (altura * altura);
@@ -24,7 +14,7 @@ function calcularIMC() {
     var categoria = "";
     if (imc < 17){
         categoria = "Muito Abaixo do peso";
-    }else if(imc >= 17 && imc < 18.5) {
+    } else if(imc >= 17 && imc < 18.5) {
         categoria = "Abaixo do peso";
     } else if (imc >= 18.5 && imc < 25) {
         categoria = "Peso normal";
